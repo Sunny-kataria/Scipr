@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Notification Templates</title>
+<style>
+.sectionn {
+  background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.1));
+  padding: 25px;
+  border-radius: 12px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  color: #005A84;
+  font-size: 20px;
+  border-left: 6px solid #2596BB;
+  padding-left: 10px;
+}
+
+.container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+.notee {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.note {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+thead {
+  background-color: #d4e4ee;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th:nth-child(1),
+td:nth-child(1) { width: 80px; }
+th:nth-child(2),
+td:nth-child(2) { width: auto; }
+
+tbody tr:hover {
+  background-color: rgba(0, 90, 132, 0.05);
+}
+
+.btn-modify {
+  background-color: #12719D;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.btn-modify:hover {
+  background-color: #0a618c;
+}
+
+/* Pagination bar */
+.notice-barr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Segoe UI", sans-serif;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.notice-barr button {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+.notice-barr button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #0056b3, #00408f);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.notice-barr input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.center-pagination {
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.h2 {
+  font-size: 22px;
+  color: #494949;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.iconn {
+  font-size: 22px;
+  color: #1976d2;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+.iconn:hover {
+  transform: scale(1.2);
+  color: #145ea8;
+}
+.center-pagination {
+    margin-top: 20px;
+    justify-content: center;
+}
+.btn-back:hover {
+      background-color: #125bb5;
+      transform: translateY(-2px);
+    }
+    .btn-back {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    .bottom-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="sectionn">
+  <h2 class="h2">
+    <i class="fas fa-bell iconn"></i>
+    Edit Notification Templates
+  </h2>
+
+  <div class="container">
+    <div class="notee">Click Edit template to change details of a notification template.</div>
+    <div class="note">
+      <strong><span id="totalRecords">98</span> record(s) found.</strong> <br>
+      Displaying page <span id="currentPage">1</span> of <span id="totalPages">10</span>.
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Edit</th>
+          <th>Available Notifications</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Rows via JS -->
+      </tbody>
+    </table>
+ <div class="note">
+      <strong><span id="totalRecords">98</span> record(s) found.</strong> <br>
+      Displaying page <span id="currentPage">1</span> of <span id="totalPages">10</span>.
+    </div>
+    <div class="notice-barr center-pagination">
+      <button onclick="goToPage(1)">« First</button>
+      <button onclick="prevPage()">‹ Prev</button>
+      <button onclick="nextPage()">Next ›</button>
+      <button onclick="goToPage(totalPages)">Last »</button>
+      <span>Page No.</span>
+      <input type="number" id="pageInput" min="1">
+      <button onclick="goToPageFromInput()">Go</button>
+    </div>
+    <div class="bottom-buttons center-pagination">
+        <button id="backToDashboard" class="btn-back">Back</button>
+        
+      </div>
+  </div>
+</div>
+
+<script>
+const notifications = [
+    "New author registration",
+    "Assignment of Editor for a manuscript by Sr. AE",
+    "Change of Sr. AE for a manuscript by current Sr. AE",
+    "Successful registration",
+    "E-mail to Editorial Office confirming submission",
+    "Acknowledgment of Submission to author",
+    "Missing component notification to author (Peer review phase)",
+    "Missing component notification to author (Peer review phase by AE)",
+    "Missing component notification to author (formatting phase)",
+    "Reminder of missing component notification to author (formatting phase)"
+];
+
+let allRows = [];
+for (let i = 0; i < 98; i++) {
+    allRows.push(notifications[i % notifications.length]);
+}
+
+const rowsPerPage = 10;
+let currentPage = 1;
+let totalPages = Math.ceil(allRows.length / rowsPerPage);
+
+document.getElementById("totalPages").innerText = totalPages;
+
+function renderTable() {
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const pageRows = allRows.slice(start, end);
+
+    const tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = "";
+    pageRows.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><button class="btn-modify">Edit</button></td>
+            <td>${row}</td>
+        `;
+        tableBody.appendChild(tr);
+    });
+
+    document.getElementById("currentPage").innerText = currentPage;
+}
+
+function goToPage(page) {
+    if (page < 1 || page > totalPages) return;
+    currentPage = page;
+    renderTable();
+}
+
+function nextPage() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderTable();
+    }
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+}
+
+function goToPageFromInput() {
+    const page = parseInt(document.getElementById("pageInput").value);
+    if (!isNaN(page)) {
+        goToPage(page);
+    }
+}
+
+renderTable();
+</script>
+
+<!-- Font Awesome for icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="Script.js"></script>
+</body>
+</html>

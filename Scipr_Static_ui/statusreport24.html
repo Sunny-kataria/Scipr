@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuscript Types</title>
+<style>
+
+.sectionn {
+  background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.1));
+  padding: 25px;
+  border-radius: 12px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  color: #005A84;
+  font-size: 20px;
+  border-left: 6px solid #2596BB;
+  padding-left: 10px;
+}
+
+.container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.form-box {
+  background-color: #d4e4ee;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-box input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+.form-box button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-add {
+  background-color: #198754;
+}
+.btn-add:hover {
+  background-color: #146c43;
+}
+
+.note {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* --- Fixed Table Layout --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+thead {
+  background-color: #d4e4ee;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th:nth-child(1),
+td:nth-child(1) { width: 80px; }
+th:nth-child(2),
+td:nth-child(2) { width: auto; }
+th:nth-child(3),
+td:nth-child(3) { width: 120px; }
+
+tbody tr:hover {
+  background-color: rgba(0, 90, 132, 0.05);
+}
+
+.btn-modify {
+  background-color: #12719D;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.btn-modify:hover {
+  background-color: #0a618c;
+}
+
+.notice-barr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.notice-barr button {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+.notice-barr button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #0056b3, #00408f);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.notice-barr input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.center-pagination {
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.bottom-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.btn-delete {
+  background-color: #198754;
+     color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.btn-delete:hover {
+  background-color: #146c43;
+  transform: translateY(-2px);
+}
+.btn-back:hover {
+      background-color: #125bb5;
+      transform: translateY(-2px);
+    }
+    .btn-back {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+     .h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+</style>
+</head>
+<body>
+
+<div class="sectionn">
+    <h2 class="h2">
+  	<i class="fas fa-folder-tree iconn"></i>
+  Content management
+</h2>
+  <div class="container">
+    
+
+    <div style="display: flex; gap: 20px; margin-bottom: 15px; font-weight: bold; color: #12719D;">
+      <span>Manuscript Types</span>
+      <span>Recommendation Terms</span>
+    </div>
+
+    <div class="form-box">
+      <label for="manuscriptType">Manuscript Type:</label>
+      <input type="text" id="manuscriptType">
+      <button class="btn-add" onclick="addType()">Add</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="note">
+        24 record(s) found.<br>Displaying page 1 of 3.
+    </div>
+      <div class="notice-barr">
+        <button id="firstPage"><< First</button>
+        <button id="prevPage">< Prev</button>
+        <button id="nextPage">Next ></button>
+        <button id="lastPage">Last >></button>
+        <span>Page No. <input type="number" id="pageInput"></span>
+        <button id="goPage">Go</button>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Manuscript Type</th>
+          <th>Modify</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <div class="note">
+        24 record(s) found.<br>Displaying page 1 of 3.
+    </div>
+    <div class="notice-barr center-pagination">
+      <button id="firstPage-2"><< First</button>
+      <button id="prevPage-2">< Prev</button>
+      <button id="nextPage-2">Next ></button>
+      <button id="lastPage-2">Last >></button>
+      <span>Page No. <input type="number" id="pageInput-2"></span>
+      <button id="goPage-2">Go</button>
+    </div>
+
+    <div class="bottom-buttons center-pagination">
+      <button id="backToDashboard" class="btn-back">Back</button>
+      <button class="btn-delete">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const data = [
+  "Perspectives", "Viewpoint", "Systematic Reviews", "Reviews", 
+  "Research articles", "Research Reports", "Retraction", 
+  "Thought Leaders: Invited Review (invited)", "Brevia", "Bench to Bedside",
+  "Case Studies", "Editorials", "Letters to Editor", "Commentary", 
+  "Meta-analysis", "Original Research", "Policy Paper", "Brief Communication",
+  "Rapid Reports", "Clinical Trials", "White Paper", "Short Reports", 
+  "Hypothesis", "Conference Summary"
+];
+
+let currentPage = 1;
+const rowsPerPage = 10;
+const totalPages = Math.ceil(data.length / rowsPerPage);
+
+function updateRecordInfo() {
+  const text = `${data.length} record(s) found. Displaying page ${currentPage} of ${totalPages}.`;
+  document.getElementById("recordInfoTop").innerText = text;
+  document.getElementById("recordInfoBottom").innerText = text;
+}
+
+function displayTable(page) {
+  const start = (page - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+  const tableData = data.slice(start, end);
+  const tableBody = document.getElementById("tableBody");
+  tableBody.innerHTML = "";
+
+  tableData.forEach(item => {
+    tableBody.innerHTML += `
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>${item}</td>
+        <td><button class="btn-modify">Modify</button></td>
+      </tr>
+    `;
+  });
+
+  // Blank rows to keep table height
+  for (let i = tableData.length; i < rowsPerPage; i++) {
+    tableBody.innerHTML += `
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    `;
+  }
+
+  updateRecordInfo();
+}
+
+function changePage(action) {
+  if (action === 'first') currentPage = 1;
+  if (action === 'prev' && currentPage > 1) currentPage--;
+  if (action === 'next' && currentPage < totalPages) currentPage++;
+  if (action === 'last') currentPage = totalPages;
+  displayTable(currentPage);
+}
+
+function goToPage(inputId) {
+  const page = parseInt(document.getElementById(inputId).value);
+  if (page >= 1 && page <= totalPages) {
+    currentPage = page;
+    displayTable(currentPage);
+  }
+}
+
+function addType() {
+  const type = document.getElementById("manuscriptType").value.trim();
+  if (type) {
+    data.push(type);
+    document.getElementById("manuscriptType").value = "";
+    displayTable(currentPage);
+  }
+}
+
+// Bind events for both paginations
+document.getElementById("firstPage").onclick = () => changePage('first');
+document.getElementById("prevPage").onclick = () => changePage('prev');
+document.getElementById("nextPage").onclick = () => changePage('next');
+document.getElementById("lastPage").onclick = () => changePage('last');
+document.getElementById("goPage").onclick = () => goToPage('pageInput');
+
+document.getElementById("firstPage-2").onclick = () => changePage('first');
+document.getElementById("prevPage-2").onclick = () => changePage('prev');
+document.getElementById("nextPage-2").onclick = () => changePage('next');
+document.getElementById("lastPage-2").onclick = () => changePage('last');
+document.getElementById("goPage-2").onclick = () => goToPage('pageInput-2');
+
+displayTable(currentPage);
+</script>
+
+</body>
+</html>

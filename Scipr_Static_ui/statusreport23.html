@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit/Delete Author Profile(s)</title>
+<style>
+.sectionn {
+  background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.1));
+  padding: 25px;
+  border-radius: 12px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  color: #005A84;
+  font-size: 20px;
+  border-left: 6px solid #2596BB;
+  padding-left: 10px;
+}
+
+.container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.search-bar {
+  background-color: #d4e4ee;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-bar label {
+  font-weight: 500;
+}
+
+.search-bar input,
+.search-bar select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 160px;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-search {
+  background-color: #198754;
+}
+
+.btn-clear {
+  background-color: #6f42c1;
+}
+
+.btn-download {
+  background-color: #12719D;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-download:hover {
+  background-color: #146c43;
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+thead {
+  background-color: #d4e4ee;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+td a {
+  color: #12719D;
+  text-decoration: underline;
+}
+
+td a:hover {
+  color: #0a618c;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 90, 132, 0.05);
+}
+
+.notice-bar {
+  background-color: #f8f9fc;
+  background-color: #d4e4ee;
+  border: 1px solid #d3d3d3;
+  padding: 5px 10px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+.notice-barr {
+  background-color: #f8f9fc;
+  /* border: 1px solid #d3d3d3; */
+  padding: 5px 10px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-back {
+  background-color: #6f42c1;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #5936a7;
+  transform: translateY(-2px);
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+     .h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+    .notice-barr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.notice-barr button {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.notice-barr button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #0056b3, #00408f);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.notice-barr input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.notice-barr input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+.page-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+.center-pagination {
+    justify-content: center;
+}
+.btn-back:hover {
+      background-color: #125bb5;
+      transform: translateY(-2px);
+    }
+    .btn-back {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body>
+
+<div class="sectionn">
+ <h2 class="h2">
+  <i class="fas fa-user-cog iconn"></i>
+  EDIT/DELETE AUTHOR PROFILE(S)
+</h2>
+
+  <div class="container">
+    
+
+    <div class="search-bar">
+      <label>Search:</label>
+      <input type="text">
+      <label>in</label>
+      <select>
+        <option>Author Name</option>
+      </select>
+      <label>Status:</label>
+      <select>
+        <option>Activated</option>
+      </select>
+      <button class="btn-search">Search</button>
+      <button class="btn-clear">Clear</button>
+      <span class="special-char">Insert Special Character</span>
+    </div>
+
+    <button class="btn-download">Download Search Results</button>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    
+    <div class="note">
+        857 record(s) found.<br>Displaying page 1 of 86.
+    </div>
+
+   <div class="notice-barr">
+    <button id="firstPage"><i class="fas fa-angle-double-left"></i> First</button>
+    <button id="prevPage"><i class="fas fa-angle-left"></i> Prev</button>
+    <button id="nextPage">Next <i class="fas fa-angle-right"></i></button>
+    <button id="lastPage">Last <i class="fas fa-angle-double-right"></i></button>
+    
+    <span class="page-input-wrap">
+        Page No.
+        <input type="number" id="pageInput">
+    </span>
+    
+    <button id="goPage"><i class="fas fa-arrow-right"></i> Go</button>
+</div>
+
+
+</div>
+
+   
+    <table>
+      <thead>
+        <tr>
+          <th>Author Name</th>
+          <th>E-mail</th>
+          <th>Edit Profile</th>
+          <th>Delete</th>
+          <th>definename</th>
+        </tr>
+      </thead>
+     <tbody id="tableBody"></tbody>
+    </table>
+
+    <div class="note">857 record(s) found.<br>Displaying page 1 of 86.</div>
+
+  
+<div class="notice-barr center-pagination">
+    <button id="firstPage-2"><i class="fas fa-angle-double-left"></i> First</button>
+    <button id="prevPage-2"><i class="fas fa-angle-left"></i> Prev</button>
+    <button id="nextPage-2">Next <i class="fas fa-angle-right"></i></button>
+    <button id="lastPage-2">Last <i class="fas fa-angle-double-right"></i></button>
+    
+    <span class="page-input-wrap">
+        Page No.
+        <input type="number" id="pageInput-2">
+    </span>
+    
+    <button id="goPage-2"><i class="fas fa-arrow-right"></i> Go</button>
+</div>
+
+    <div class="center">
+      <button id="backToDashboard" class="btn-back">Back</button>
+    </div>
+  </div>
+</div>
+<script>
+   const tableData = [
+    // PAGE 1 DATA (Dummy Example)
+    ["Acad. Reviewer1 reviewer", "anupam.k@aptaracorp.com", "Edit", "Delete", "reviewer Reviewer1"],
+    ["Acad. Reviewer2 reviewer", "anupam.k@aptaracorp.com", "Edit", "Delete", "reviewer Reviewer2"],
+    ["Prof Dr. George Chrousos", "anupam.k@aptaracorp.com", "Edit", "Delete", "Chrousos George"],
+    ["Dr. Stefan Bornstein", "anupam.k@aptaracorp.com", "Edit", "Delete", "Bornstein Stefan"],
+    ["Dr. NATALIA ACOSTA-BAENA", "anupam.k@aptaracorp.com", "Edit", "Inactivate", "	ACOSTA-BAENA NATALIA"],
+    ["Dr. Tatiana Barichello", "anupam.k@aptaracorp.com", "Edit", "Delete", "Barichello Tatiana"],
+    ["Dr. Daniel Barbosa", "anupam.k@aptaracorp.com", "Edit", "Delete", "Barbosa Daniel"],
+    ["Dr. Natalie Rasgon", "anupam.k@aptaracorp.com", "Edit", "Delete", "Rasgon Natalie"],
+    ["Dr. Udo Dannlowski", "anupam.k@aptaracorp.com", "Edit", "Delete", "Dannlowski Udo"],
+    ["bm-2025-0032", "anupam.k@aptaracorp.com", "Edit", "Delete", "	Walss-Bass Consuelo"],
+
+    // PAGE 2 DATA (Your Provided Data)
+    ["Dr. Tatiana Barichello", "anupam.k@aptaracorp.com", "Edit", "Delete", "Barichello Tatiana"],
+    ["Dr. Daniel Barbosa", "anupam.k@aptaracorp.com", "Edit", "Delete", "Barbosa Daniel"],
+    ["Dr. Natalie Rasgon", "anupam.k@aptaracorp.com", "Edit", "Delete", "Rasgon Natalie"],
+    ["Dr. Udo Dannlowski", "anupam.k@aptaracorp.com", "Edit", "Delete", "Dannlowski Udo"],
+    ["bm-2025-0032", "anupam.k@aptaracorp.com", "Edit", "Delete", "	Walss-Bass Consuelo"],
+    ["Acad. Reviewer1 reviewer", "anupam.k@aptaracorp.com", "Edit", "Delete", "reviewer Reviewer1"],
+    ["Acad. Reviewer2 reviewer", "anupam.k@aptaracorp.com", "Edit", "Delete", "reviewer Reviewer2"],
+    ["Prof Dr. George Chrousos", "anupam.k@aptaracorp.com", "Edit", "Delete", "Chrousos George"],
+    ["Dr. Stefan Bornstein", "anupam.k@aptaracorp.com", "Edit", "Delete", "Bornstein Stefan"],
+    ["Dr. NATALIA ACOSTA-BAENA", "anupam.k@aptaracorp.com", "Edit", "Inactivate", "	ACOSTA-BAENA NATALIA"],
+  ];
+
+ const rowsPerPage = 10;
+let currentPage = 1;
+const totalPages = Math.ceil(tableData.length / rowsPerPage);
+
+function renderTable(page) {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const rows = tableData.slice(start, end);
+    document.getElementById("tableBody").innerHTML = rows.map(row =>
+        `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+    ).join('');
+    document.getElementById("pageInput").value = page;
+    document.getElementById("pageInput-2").value = page;
+}
+
+function goToPage(page) {
+    if (page < 1) page = 1;
+    if (page > totalPages) page = totalPages;
+    currentPage = page;
+    renderTable(currentPage);
+}
+
+// 🔹 Top Pagination Events
+document.getElementById("firstPage").onclick = () => goToPage(1);
+document.getElementById("prevPage").onclick = () => goToPage(currentPage - 1);
+document.getElementById("nextPage").onclick = () => goToPage(currentPage + 1);
+document.getElementById("lastPage").onclick = () => goToPage(totalPages);
+document.getElementById("goPage").onclick = () => goToPage(parseInt(document.getElementById("pageInput").value));
+
+// 🔹 Centered Pagination Events
+document.getElementById("firstPage-2").onclick = () => goToPage(1);
+document.getElementById("prevPage-2").onclick = () => goToPage(currentPage - 1);
+document.getElementById("nextPage-2").onclick = () => goToPage(currentPage + 1);
+document.getElementById("lastPage-2").onclick = () => goToPage(totalPages);
+document.getElementById("goPage-2").onclick = () => goToPage(parseInt(document.getElementById("pageInput-2").value));
+
+// Enter key support
+document.getElementById("pageInput-2").addEventListener("keypress", e => {
+    if (e.key === "Enter") document.getElementById("goPage-2").click();
+});
+
+// Initial load
+goToPage(1);
+
+</script>
+
+<script src="Script.js"></script>
+
+</body>
+</html>

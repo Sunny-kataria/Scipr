@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manuscripts Under Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+  
+
+    .sectionn {
+      background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.1));
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      color: #005A84;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 6px solid #2596BB;
+      padding-left: 10px;
+    }
+
+    h3::before {
+      content: '📄';
+      font-size: 22px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
+
+    .note {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .btn-download {
+      background-color: #198754;
+          background-color: #12719D;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-download:hover {
+      background-color: #146c43;
+      /* transform: scale(1.02); */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15); /* Simple 3D shadow */
+      overflow: hidden;
+    }
+
+    thead {
+      background-color: #d4e4ee;
+    }
+
+    thead th {
+      border: 1px solid #bbb;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(0, 90, 132, 0.05);
+      transition: background 0.3s ease;
+    }
+
+    a {
+      color: #12719D;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #0a618c;
+    }
+
+    .status-details {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background: #f8fcff;
+      border-left: 3px solid #cce5ff;
+      padding-left: 10px;
+      margin-top: 8px;
+      color: #333;
+      white-space: pre-line;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .btn-back {
+      background-color: #007b8f;
+      color: white;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back:hover {
+      background-color: #005a71;
+      transform: translateY(-2px);
+    }
+/* .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+} */
+/* table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+th, td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+} */
+
+    /* @media (max-width: 768px) {
+      thead th:nth-child(6) {
+        width: 220px;
+      }
+      thead th:nth-child(7) {
+        width: 100px;
+      }
+    } */
+      table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15); /* Simple 3D shadow */
+  overflow: hidden;
+}
+.h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+  </style>
+</head>
+<body>
+
+  <div class="sectionn">
+    <h2 class="h2"><i class="fas fa-search iconn"></i>
+
+      MANUSCRIPTS UNDER REVIEW </h2>
+
+    <div class="container">
+      <button class="btn-download">Download Search Results</button>
+
+      <div class="note">7 record(s) found. Displaying page 1 of 1.</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Manuscript Id</th>
+            <th>Title</th>
+            <th>dateOfSubmission</th>
+            <th>Author</th>
+            <th>Type</th>
+            <th>Status summary</th>
+            <th>Review status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bim-2025-0030</td>
+            <td>Click this link to add information about the co-author(s)...<br><a href="#">Details</a></td>
+            <td>Jul 03, 2025</td>
+            <td>Julio Ulehla</td>
+            <td>Insights</td>
+            <td>Accepted for peer review process</td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+          <tr>
+            <td>bim-2025-0029</td>
+            <td>About the co-author(s) of your manuscript...<br><a href="#">Details</a></td>
+            <td>Jul 03, 2025</td>
+            <td>Julio Ulehla</td>
+            <td>Book Reviews</td>
+            <td>
+              Accepted for peer review process
+              <div class="status-details">
+Review Status:
+– Invited(Total:3)
+– Invited(Accepted:2)
+– Not responded(1)
+– Accepted and yet to submit(0)
+– Extension requested, awaiting approval(0)
+– Declined(0)
+– Reviewed(0)
+– Review report submitted(2)
+              </div>
+            </td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+          <tr>
+            <td>bim-2025-0018</td>
+            <td>e4df<br><a href="#">Details</a></td>
+            <td>Apr 24, 2025</td>
+            <td>Julio Ulehla</td>
+            <td>Bench to Bedside</td>
+            <td>Accepted for peer review process
+              <div class="status-details">Review Status:
+– Invited(Total:3)
+– Invited(Accepted:2)
+– Not responded(1)
+– Accepted and yet to submit(0)
+– Extension requested, awaiting approval(0)
+– Declined(0)
+– Reviewed(0)
+– Review report submitted(2)
+              </div>
+            </td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+          <tr>
+            <td>bim-2024-0047</td>
+            <td>Neural mechanism of cognitive generalization...<br><a href="#">Details</a></td>
+            <td>Dec 18, 2024</td>
+            <td>Zhenzhen Quan</td>
+            <td>Reviews</td>
+            <td>Accepted for peer review process
+              <div class="status-details">Review Status:
+– Invited(Total:3)
+– Invited(Accepted:2)
+– Not responded(1)
+– Accepted and yet to submit(0)
+– Extension requested, awaiting approval(0)
+– Declined(0)
+– Reviewed(0)
+– Review report submitted(2)
+              </div>
+            </td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+          <tr>
+            <td>bim-2024-0040</td>
+            <td>Invited Expert Review<br><a href="#">Details</a></td>
+            <td>Jul 31, 2024</td>
+            <td>Kenneth Kandar</td>
+            <td>Thought Leaders: Invited Review</td>
+            <td>Accepted for peer review process
+              <div class="status-details">Review Status:
+– Invited(Total:3)
+– Invited(Accepted:2)
+– Not responded(1)
+– Accepted and yet to submit(0)
+– Extension requested, awaiting approval(0)
+– Declined(0)
+– Reviewed(0)
+– Review report submitted(2)
+              </div>
+            </td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+          <tr>
+            <td>bim-2024-0035</td>
+            <td>Internet Searches for ADHD Medications...<br><a href="#">Details</a></td>
+            <td>Jun 22, 2024</td>
+            <td>Steven Grieco</td>
+            <td>Briefs</td>
+            <td>Accepted for peer review process</td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+          <tr>
+            <td>bim-2024-0021</td>
+            <td>The association of different acute manifestations...<br><a href="#">Details</a></td>
+            <td>Apr 12, 2024</td>
+            <td>João Pedro Fernandes Gonçalves</td>
+            <td>Research Reports</td>
+            <td>Accepted for peer review process</td>
+            <td><a href="#">Review Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="center">
+        <button class="btn-back" id="backToDashboard">Back</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

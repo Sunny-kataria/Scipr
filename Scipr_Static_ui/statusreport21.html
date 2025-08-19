@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grant Review Rights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    
+    .sectionn {
+      background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.1));
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px 35px;
+    }
+
+    .header {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a4e80;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header i {
+      margin-right: 10px;
+      color: #2596be;
+      transition: color 0.3s ease;
+    }
+
+    .header:hover i {
+      color: #0077b6;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      flex: 100%;
+      font-weight: 500;
+      margin-bottom: 2px;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .special-note {
+      font-size: 13px;
+      margin: 5px 0 10px;
+      color: #555;
+    }
+
+    .specialization-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .specialization-wrapper select[multiple] {
+      height: 150px;
+      width: 50%;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #198754;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #146c43;
+      transform: scale(1.03);
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #2596be;
+    }
+
+    .back-btn:hover {
+      background-color: #0077b6;
+    }
+
+    .info-box {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      background: #e6f0f9;
+      color: #1a4e80;
+      font-size: 14px;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .center {
+      text-align: center;
+    }
+    .iconn {
+  font-size: 22px;
+  color: #1976d2;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.iconn:hover {
+  transform: scale(1.2);
+  color: #145ea8;
+}
+.h2 {
+  font-size: 22px;
+  color: #1e2f43;
+  color: #494949;;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px; /* 👈 Space below heading */
+}
+  </style>
+</head>
+<body>     
+
+    <div class="sectionn">
+         <h2 class="h2">
+   <i class="fas fa-user-shield iconn"></i>
+    
+GRANT REVIEW RIGHTS TO AUTHOR
+ </h2>
+  <div class="container">
+    
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" placeholder="Enter name" />
+
+      <label>E-Mail</label>
+      <input type="email" placeholder="Enter E-mail id" />
+    </div>
+
+    <div class="form-group">
+      <label>Country</label>
+      <select>
+        <option value="">Select Country</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+      </select>
+    </div>
+
+    <!-- Only this part is centered -->
+    <div class="specialization-wrapper">
+      <label>Specialization Area</label>
+      <div class="special-note">
+        (To select/deselect multiple items, click the items holding the Ctrl Key)
+      </div>
+      <select multiple>
+        <option>Addiction</option>
+        <option>Adverse drug reactions</option>
+        <option>Aging</option>
+        <option>AI &amp; machine learning</option>
+        <option>Artificial intelligence</option>
+        <option>Bioinformatics</option>
+        <option>Cancer research</option>
+        <option>Cardiology</option>
+        <option>Clinical trials</option>
+      </select>
+    </div>
+
+    <div class="center">
+      <button class="btn">Search</button>
+    </div>
+
+    <div class="info-box">
+      No user available to grant review rights. Click on Home menu to view your other tasks in your filing cabinet.
+    </div>
+
+    <!-- Only this back button is centered -->
+    <div class="center">
+      <button id="backToDashboard" class="btn back-btn">Back</button>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

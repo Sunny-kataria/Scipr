@@ -1,0 +1,56 @@
+
+<div class="section">
+<h2 class="h2">
+<i class="fas fa-clipboard-list iconn"></i>
+ NEW/RESUBMITTED/REVISED MANUSCRIPTS (FROM AUTHORS)
+</h2>
+
+
+
+  <div style="background: #f7fbfd; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); color: #333;">
+    
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px;">
+      <label>Search:</label>
+      <input type="text" placeholder="" style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; min-width: 120px; flex: 1; transition: border 0.3s;">
+      
+      <label>in</label>
+      <select style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; transition: border 0.3s;">
+        <option>Manuscript ID</option>
+        <option>Title</option>
+        <option>Author</option>
+      </select>
+
+      <button type="button" style="padding: 7px 15px; background-color: #007b8f; color: white; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s;">Search</button>
+
+      <button type="reset" style="padding: 7px 15px; background-color: #927396; color: white; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s;">Clear</button>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span style="color: red;">No record(s) found</span>
+    </div>
+
+    <div style="text-align: center;">
+      <button id="backToDashboard" style="padding: 8px 18px; background-color: #007b8f; color: white; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s;">Back</button>
+    </div>
+  </div>
+</div>
+
+<script src="Script.js"></script>
+
+<style>
+   .h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+  input:hover, select:hover {
+    border-color: #007b8f;
+  }
+
+  button:hover {
+    opacity: 0.9;
+    background-color: #005f77 !important;
+  }
+
+  button[type="reset"]:hover {
+    background-color: #75587b !important;
+  }
+</style>

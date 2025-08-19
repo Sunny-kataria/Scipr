@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Revoke Assigned Reviewer(s)</title>
+  <style>
+    .revoke-container {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 25px 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      border: 1px solid #dee9f4;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .revoke-header {
+      font-weight: 700;
+      font-size: 16px;
+      color: #223c58;
+      border-bottom: 2px solid #525558;
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: black;
+    }
+
+    input[type="text"], select {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      min-width: 140px;
+      background: #fff;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-search {
+      background-color: #007f5f;
+    }
+
+    .btn-search:hover {
+      background-color: #005e45;
+    }
+
+    .btn-clear {
+      background-color: #6f4a8e;
+    }
+
+    .btn-clear:hover {
+      background-color: #583678;
+    }
+
+    .special-char {
+      float: right;
+      font-size: 13px;
+      color: #2d405e;
+      font-weight: 500;
+      margin-top: -30px;
+    }
+
+    .no-records {
+      border: 1px solid #eee;
+      background: #fff;
+      padding: 10px;
+      color: red;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 14px;
+      border-radius: 6px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .btn-back {
+      background-color: #6f4a8e;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+   .btn-back:hover {
+      background-color: #125bb5;
+      transform: translateY(-2px);
+    }
+    .btn-back {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    .btn-clear{
+background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 3px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+     .btn-clear:hover {
+      background-color: #125bb5;
+      transform: translateY(-2px);
+    }
+      .form-row {
+    margin-bottom: 15px;
+  }
+  .no-record {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #b6d1ec;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #e63946;
+    background-color: #f0f8ff;
+  }
+   .h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+  </style>
+</head>
+<body>
+
+    <div class="section">
+        
+<h2 class="h2">
+<i class="fas fa-trash-alt iconn"></i>
+
+  Manuscript(s) withdrawn
+</h2>
+<div class="revoke-container">
+ 
+
+  <div class="search-row">
+    <label>Search:</label>
+    <input type="text" />
+    <label>in</label>
+    <select>
+      <option>Title</option>
+      <option>Author</option>
+    </select>
+    <button class="btn btn-search">Search</button>
+    <button class="btn btn-clear">Clear</button>
+  </div>
+
+  <div class="special-char">Insert Special Character</div>
+
+  <div class="form-row">
+    <div class="no-record">No record(s) found</div>
+  </div>
+
+  <div class="center">
+    <button id="backToDashboard" class="btn-back">Back</button>
+  </div>
+</div>
+
+    </div>
+
+<script src="Script.js"></script>
+</body>
+</html>

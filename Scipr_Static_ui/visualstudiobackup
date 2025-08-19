@@ -1,0 +1,271 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="editoroffice.master.cs" Inherits="SciPR.EditorOffice.editoroffice" %>
+
+<html lang="en">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">    
+  <title>Dashboard-SciPR</title>
+   <link rel="icon" type="image/x-icon" href="../favicon.ico"> 
+    <!-- Custom fonts for this template-->  
+    <link href="../assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+
+  <!-- Page level plugin CSS-->  
+    <link href="../assets/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+    <!---Font PTSans--->
+    <link rel="preconnect" id="g1" runat="server">
+    <link rel="preconnect" id="g2" runat="server" crossorigin>
+    <link id="g3" runat="server" rel="stylesheet">
+    <!---End Font PTSans--->
+	
+  <!-- Custom styles for this template-->  
+    <link id="linkcss" runat="server" href="../css/sb-admin.css" rel="stylesheet" />    
+
+
+
+    <script src="/assets/jquery/jquery.min.js"></script>  
+
+    <script src="/Common/Common.js"></script>
+
+    <script type="text/JavaScript">
+        $(document).ready(function () {            
+
+            var f = $("#hfPosition");
+            window.onload = function () {
+                var position = parseInt(f.val());
+                if (!isNaN(position)) {
+                    $(window).scrollTop(position);
+                }
+            };
+            window.onscroll = function () {
+                var position = $(window).scrollTop();
+                f.val(position);
+            };
+        });
+
+        var globaltime;
+        var tik;
+        var popup;
+        var existsite;
+
+        function SessionExpireAlert(timeout) {
+            window.clearTimeout(popup);
+            globaltime = timeout;
+            var seconds = globaltime / 1000;
+            $('#secondsIdle').html(seconds);
+            tik = setInterval(function () {
+                seconds--;
+                $('#secondsIdle').text(seconds);
+                $('#aaa').html(seconds);
+            }, 1000);
+
+            popup = setTimeout(function () { show(); }, timeout - 60 * 1000);
+            existsite = setTimeout(function () {
+                window.location = "../../Sessionxp.aspx";
+            }, timeout);
+        }
+
+        function ResetSession() {
+            HideModalPopUp();
+            $.ajax({
+                type: "POST",
+                url: "/Common/SessionTimeOutTB.aspx/GetTranscationHistory",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess
+            });
+        }
+        function OnSuccess() {
+            clearInterval(tik);
+            window.clearTimeout(popup);
+            window.clearTimeout(existsite);
+            setInterval(SessionExpireAlert(globaltime), 10);
+        }
+
+        function show() {
+            ResizePopUp();
+            $('#sessionExpire').show();
+            $('#sessionExpire_overlay').show();
+            window.scroll(0, 0);
+            $('#focus').attr("tabindex", -1).focus();
+        }
+        function HideModalPopUp() {
+            var divFrameParent = document.getElementById("sessionExpire");
+            var divOverlay = document.getElementById("sessionExpire_overlay");
+            divOverlay.style.display = "none";
+            divFrameParent.style.display = "none";
+        }
+
+        function ResizePopUp() {
+            var divFrameParent = document.getElementById("sessionExpire");
+            var divOverlay = document.getElementById("sessionExpire_overlay");
+
+            var winW = Math.round(($(window).width()) / 2);
+            var popW = Math.round(($('#sessionExpire').width()) / 2);
+            var winH = Math.round(($(window).height()) / 2);
+            var popH = ($('#sessionExpire').height()) / 2;
+            var top = Math.round((winH - popH));
+            var left = Math.round((winW - popW));
+            divFrameParent.style.top = top + "px";
+            divFrameParent.style.left = left + "px";
+            divOverlay.style.top = "0px";
+            divOverlay.style.left = "0px";
+            var e = document;
+            var c = "Height";
+            var maxHeight = Math.max(e.documentElement["client" + c], e.body["scroll" + c], e.documentElement["scroll" + c], e.body["offset" + c], e.documentElement["offset" + c]);
+            c = "Width";
+            var maxWidth = Math.max(e.documentElement["client" + c], e.body["scroll" + c], e.documentElement["scroll" + c], e.body["offset" + c], e.documentElement["offset" + c]);
+            divOverlay.style.height = maxHeight + "px";
+            divOverlay.style.width = maxWidth - 2 + "px";
+        }
+        function findPos(obj) {
+            var curtop = 0;
+            if (obj.offsetParent) {
+                do {
+                    curtop += obj.offsetTop;
+                } while (obj = obj.offsetParent);
+                return [curtop];
+            }
+        }
+
+        function MM_openBrWindow(theURL, winName, features) {
+            OpenPopup(theURL, winName, features);
+        }
+
+        function Open_popup() {
+            var name = "http://canadianjournalofpathology.ca/";
+            var ht;
+            if (window.navigator.appVersion.indexOf("MSIE 5.01") == -1)
+                ht = 300;
+            else
+                ht = 600;
+            OPenlink = window.open(name, "special_characters", "resizable=yes,scrollbars=yes,fullscreen=yes,dependent=yes,alwaysRaised=yes");
+            OPenlink.focus();
+        }
+
+        function Open_popup_cover() {
+            var name = "http://canadianjournalofpathology.ca/";
+            var ht;
+            if (window.navigator.appVersion.indexOf("MSIE 5.01") == -1)
+                ht = 300;
+            else
+                ht = 600;
+            OPenlink = window.open(name, "special_characters", "resizable=yes,scrollbars=yes,fullscreen=yes,dependent=yes,alwaysRaised=yes");
+            OPenlink.focus();
+        }
+        function Open_popup_det() {
+            var name = "http://sac-oac.ca/";
+            var ht;
+            if (window.navigator.appVersion.indexOf("MSIE 5.01") == -1)
+                ht = 300;
+            else
+                ht = 600;
+            OPenlink = window.open(name, "special_characters", "resizable=yes,scrollbars=yes,fullscreen=yes,dependent=yes,alwaysRaised=yes");
+            OPenlink.focus();
+        }        
+</script>   
+    
+</head>
+<body id="page-top">
+    <form id="form1" runat="server">
+     <asp:ScriptManager ID="ScriptManager1" runat="server" />
+      <nav class="navbar navbar-expand navWh static-top">
+
+    <a class="navbar-brand mr-1" href="index.html"><img id="imgLogo" runat="server"/> <!--Journal--></a>
+	<!--iconMenu-->
+	    <ul class="listMenu ml-auto">
+            <li class="c1D"><a class="brand-logo" href="#"><a href="../../EditorOffice/Forms/editorOfficeHome.aspx"><span class="im"><i class="fas fa-home"></i></span> <span class="tx">Home</span></a></li>                    
+            <li class="c1D"><a href="../../EditorOffice/Forms/EditorProfile.aspx"><span class="im"><i class="fas fa-user-circle fa-fw"></i></span> 
+             <span class="tx">User Profile</span></a>
+            </li>    
+            <li class="c1D">
+                <a class="brand-logo" href="#"><img id="imgAptLogo"  visible="false" runat="server"/></a>
+             </li>
+        </ul>
+  </nav>
+
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+     <li class="nav-item">
+        <a class="nav-link" href="../../EditorOffice/Forms/editorOfficeHome.aspx">
+            <i class="fas fa-home"></i>
+            <span>Home</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../EditorOffice/Forms/SearchManuscript.aspx">
+          <i class="fas fa-fw fa-search"></i>
+          <span>Search</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../Forms/ViewPublicationDetail.aspx">
+          <i class="fas fa-fw fas fa-info"></i>
+          <span>Publication Info</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="help" runat="server" target="_blank" href="#">
+          <i class="fas fa-fw fas fa-info"></i>
+          <span>Help</span></a>
+      </li>	  	  
+	  <li class="nav-item">
+        <a class="nav-link" href="mailto:scipr@aptaracorp.com?subject=Genomic Press: Brain Medicine">
+          <i class="fas fa-fw fas fa-phone-square"></i>
+          <span>Contact Support</span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="../../EditorOffice/Forms/logout.aspx">
+          <i class="fas fa-fw fas fa-sign-out-alt"></i>
+          <span>Logout</span></a>
+      </li>
+    </ul>
+
+
+    <div id="content-wrapper">
+      <div class="container-fluid">
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>      
+      </div>
+      <!-- Sticky Footer -->
+
+      <footer class="footer">
+        <div class="container my-auto">
+          <div class="text-copywrite my-auto">
+            <span id="scopy" runat="server"></span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up mt-3"></i>
+  </a>
+  
+  <!-- Bootstrap core JavaScript-->    
+  <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/assets/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->  
+  <script src="/assets/datatables/jquery.dataTables.js"></script>
+  <script src="/assets/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->  
+  <script src="/js/sb-admin.min.js"></script>
+
+  <%--<!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>--%>
+</form>
+</body>
+
+</html>

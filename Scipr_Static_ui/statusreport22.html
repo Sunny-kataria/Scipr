@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Content Management - Manuscript Types</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* same CSS as before, no change */
+    .sectionn {background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.1)); padding: 25px; border-radius: 12px;}
+    .container {max-width: 1000px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);}
+    .tabs {margin-bottom: 25px; border-bottom: 2px solid #cde2f7;}
+    .tabs a {margin-right: 15px; color: #555; text-decoration: none; padding-bottom: 8px; display: inline-block;}
+    .tabs a:hover,.tabs a.active {color: #0077b6; border-bottom: 2px solid #0077b6;}
+    .form-box {background: #f6f9fc; padding: 20px; border-radius: 8px; display: flex; gap: 10px; align-items: center; margin-bottom: 20px;}
+    .form-box input {padding: 8px; flex: 1; border: 1px solid #ccc; border-radius: 6px;}
+    .form-box button {padding: 9px 15px; background: #198754; color: #fff; border: none; border-radius: 6px; cursor: pointer;}
+    .form-box button:hover {background: #146c43;}
+    table {width: 100%; border-collapse: collapse; margin-bottom: 20px;}
+    th,td {padding: 12px; border: 1px solid #ccc; text-align: left;}
+    th {background: #e3f2fd; color: #1e3a5f;}
+    td button {background: none; border: none; color: #0077b6; cursor: pointer;}
+    .pagination {display: flex; justify-content: space-between; align-items: center; margin-top: 20px; flex-wrap: wrap; gap: 10px;}
+    .pagination-controls {display: flex; align-items: center; gap: 5px;}
+    .pagination input {width: 50px; padding: 5px; text-align: center;}
+    .action-buttons {text-align: center; margin-top: 20px;}
+    .action-buttons button {margin: 0 10px; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer;}
+    .btn-back {background: #b197fc; color: #fff;}
+    .btn-back:hover {background: #a17ffb;}
+    .btn-delete {background: #198754; color: #fff;}
+    .btn-delete:hover {background: #146c43;}
+    .h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+  </style>
+</head>
+<body>
+  <div class="sectionn">
+    <h2 class="h2">
+      <i class="fas fa-folder-open iconn"></i>
+      CONTENT MANAGEMENT
+    </h2>
+    <div class="container">
+
+      <div class="tabs">
+        <a href="#" class="active">Manuscript Types</a>
+        <a href="#">Recommendation Terms</a>
+      </div>
+
+      <div class="form-box">
+        <label for="manuscript-type">Manuscript Type:</label>
+        <input type="text" id="manuscript-type" />
+        <button>Add</button>
+      </div>
+
+      <div id="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>Manuscript Type</th>
+              <th>Modify</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- your data rows -->
+            <tr><td><input type="checkbox" /></td><td>Perspectives</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Viewpoint</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Systematic Reviews</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Reviews</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Research articles</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Research Reports</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Retraction</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Thought Leaders</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Editorial</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Letters</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>Case Reports</td><td><button>Modify</button></td></tr>
+            <tr><td><input type="checkbox" /></td><td>News</td><td><button>Modify</button></td></tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <div class="pagination-controls">
+            <button onclick="goPage(1)">&laquo; First</button>
+            <button onclick="goPage(currentPage - 1)">&lt; Prev</button>
+            <button onclick="goPage(currentPage + 1)">Next &gt;</button>
+            <button onclick="goPage(totalPages)">Last &raquo;</button>
+          </div>
+          <div>
+            Page No. <input type="number" id="pageNo" min="1" value="1" />
+            <button onclick="goToInputPage()">Go</button>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button id="backToDashboard" class="btn-back">Back</button>
+          <button class="btn-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const rowsPerPage = 5;
+  let rows = [];
+  let totalPages = 0;
+  let currentPage = 1;
+
+  function displayRows(page) {
+    if (page < 1 || page > totalPages) return;
+    rows.forEach((row, index) => {
+      row.style.display = (index >= (page - 1) * rowsPerPage && index < page * rowsPerPage) ? "" : "none";
+    });
+    currentPage = page;
+    document.getElementById("pageNo").value = currentPage;
+  }
+
+  function goPage(page) {
+    displayRows(page);
+  }
+
+  function goToInputPage() {
+    const page = parseInt(document.getElementById("pageNo").value);
+    if (!isNaN(page) && page >= 1 && page <= totalPages) {
+      goPage(page);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    rows = Array.from(document.querySelectorAll("#table-body tr"));
+    totalPages = Math.ceil(rows.length / rowsPerPage);
+    displayRows(1);
+  });
+</script>
+</body>
+</html>

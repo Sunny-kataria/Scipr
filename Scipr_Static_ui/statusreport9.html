@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manuscripts Under Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+   
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      color: #005A84;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 6px solid #2596BB;
+      padding-left: 10px;
+    }
+
+    h3::before {
+      content: '📄';
+      font-size: 22px;
+    }
+
+    .search-bar {
+      /* background: linear-gradient(to right, white, rgba(0, 90, 132, 0.1)); */
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input[type="text"],
+    .search-bar select {
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      min-width: 160px;
+    }
+
+    .search-bar button {
+      background-color: #198754;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      /* transition: all 0.3s ease; */
+    }
+
+    .search-bar button:hover {
+      background-color: #146c43;
+      transform: translateY(-1px);
+    }
+
+    .clear-btn {
+      background-color: #6c757d !important;
+    }
+
+    .search-bar .download-btn {
+      margin-left: auto;
+          background-color: #12719D;
+    }
+.download-btn{
+        background-color: #12719D;
+}
+    .note {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* thead {
+      background: linear-gradient(to right, #12719D, #2596BB);
+      color: white;
+    } */
+
+    thead th {
+      border: 1px solid #bbb;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(0, 90, 132, 0.05);
+      transition: background 0.3s ease;
+    }
+
+    .details-link {
+      color: #12719D;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 13px;
+    }
+
+    .details-link:hover {
+      color: #0a618c;
+    }
+
+    
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15); /* Simple 3D shadow */
+  overflow: hidden;
+}
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+.sectionn {
+      background: linear-gradient(to right, #12719D, #2596BB);
+      background: linear-gradient(to left, #2596BB, rgba(0, 90, 132, 0.2));
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+    
+    }
+    .sectionn h3 {
+      margin-bottom: 15px;
+      color: rgb(54, 53, 53);
+    }
+    .center {
+      text-align: center;
+      margin-top: 20px;
+    }
+     .special-char {
+      float: right;
+      font-size: 13px;
+      color: #2d405e;
+      font-weight: 500;
+      margin-top: 0px;
+    }
+.h2 {font-size: 22px; color: #494949; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;}
+    .iconn {font-size: 22px; color: #1976d2; transition: transform 0.3s ease, color 0.3s ease; cursor: pointer;}
+    .iconn:hover {transform: scale(1.2); color: #145ea8;}
+
+  </style>
+</head>
+<body>
+  <div class="sectionn">
+      <h2>
+           <i class="fas fa-search iconn" ></i>
+        MANUSCRIPTS UNDER REVIEW
+      </h2>
+  <div class="container">
+    <div class="search-bar" style="background-color: #d4e4ee;">
+      <label for="search">Search:</label>
+      <input type="text" id="search" placeholder="" />
+      <label for="filter">In</label>
+      <select id="filter">
+        <option>Title</option>
+      </select>
+      <button>Search</button>
+      <button class="clear-btn">Clear</button>
+      <div class="special-char">Insert Special Character</div>
+      <button class="download-btn">Download Search Results</button>
+   
+    
+    </div>
+
+    <div class="note">7 record(s) found. Displaying page 1 of 1.</div>
+
+    <table>
+      <thead style="background-color: #d4e4ee;">
+        <tr>
+          <th>Manuscript Id</th>
+          <th>Submission Date</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Status summary</th>
+          <th>Editor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bm-2021-0030</td>
+          <td>Jul 03, 2023</td>
+          <td>Click this link to add information about the co-author(s) of your manuscript. If your manuscript has no co-authors</td>
+          <td>Julie Lichnio</td>
+          <td>Accepted for peer review process</td>
+          <td>N/A (Assistant Editor)</td>
+        </tr>
+        <tr>
+          <td>bm-2021-0029</td>
+          <td>Jul 03, 2023</td>
+          <td>about the co-author(s) of your manuscript. If your manuscript has no co-authors, please click this link and check the</td>
+          <td>Julie Lichnio</td>
+          <td>
+            Accepted for peer review process<br>
+            <strong>Review Status:</strong><br>
+            - Invited(3)<br>
+            - Not responded(1)<br>
+            - Accepted and yet to submit(1)<br>
+            - Decision received, awaiting approval(1)<br>
+            - Declined(0)<br>
+            - Reviewed(0)<br>
+            - Review report submitted(1)
+          </td>
+          <td>N/A (Assistant Editor)</td>
+        </tr>
+        <tr>
+          <td>bm-2021-0015</td>
+          <td>Apr 24, 2021</td>
+          <td>asdf</td>
+          <td>Julie Lichnio</td>
+          <td>
+            Accepted for peer review process<br>
+            <strong>Review Status:</strong><br>
+            - Invited(3)<br>
+            - Not responded(1)<br>
+            - Accepted and yet to submit(1)<br>
+            - Decision received, awaiting approval(1)<br>
+            - Declined(0)<br>
+            - Reviewed(0)<br>
+            - Review report submitted(1)
+          </td>
+          <td>ME Agama (Assistant Editor)</td>
+        </tr>
+        <tr>
+          <td>bm-2021-0047</td>
+          <td>Dec 18, 2024</td>
+          <td>
+            Neural mechanism of cognitive generalisation from hippocampus to cortex<br>
+            <span class="details-link">Details</span>
+          </td>
+          <td>Zhenzhen Quan</td>
+          <td>
+            Accepted for peer review process<br>
+            <strong>Review Status:</strong><br>
+            - Invited(3)<br>
+            - Not responded(1)<br>
+            - Accepted and yet to submit(1)<br>
+            - Decision received, awaiting approval(1)<br>
+            - Declined(0)<br>
+            - Reviewed(0)<br>
+            - Review report submitted(1)
+          </td>
+          <td>ME Agama (Assistant Editor)</td>
+        </tr>
+        <tr>
+          <td>bm-2021-0040</td>
+          <td>Jul 11, 2024</td>
+          <td>
+            Invited Expert Review<br>
+            <span class="details-link">Details</span>
+          </td>
+          <td>Kenneth Kandlur</td>
+          <td>
+            Accepted for peer review process<br>
+            <strong>Review Status:</strong><br>
+            - Invited(3)<br>
+            - Not responded(1)<br>
+            - Accepted and yet to submit(1)<br>
+            - Decision received, awaiting approval(1)<br>
+            - Declined(0)<br>
+            - Reviewed(0)<br>
+            - Review report submitted(1)
+          </td>
+          <td>ME Agama (Assistant Editor)</td>
+        </tr>
+        <tr>
+          <td>bm-2021-0035</td>
+          <td>Jun 22, 2024</td>
+          <td>Internet Searches for ADHD Medications Surged During the COVID-19 Pandemic</td>
+          <td>Steven Grisco</td>
+          <td>Accepted for peer review process</td>
+          <td>ME Agama (Assistant Editor)</td>
+        </tr>
+        <tr>
+          <td>bm-2021-0021</td>
+          <td>Apr 20, 2024</td>
+          <td>
+            The association of different extra manifestations of Multiple Sclerosis on functional outcome<br>
+            <span class="details-link">Details</span>
+          </td>
+          <td>João Pedro Fernandes Gonçalves</td>
+          <td>Accepted for peer review process</td>
+          <td>ME Agama (Assistant Editor)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="center" >
+        <button id="backToDashboard" style="padding: 10px 20px; background-color: #007b8f; color: white; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s ease;">Back</button>
+    </div>
+  </div>
+  </div>
+<script src="Script.js"></script>
+</body>
+</html>
